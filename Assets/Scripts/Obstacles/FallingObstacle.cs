@@ -4,6 +4,7 @@ public class FallingObstacle : MonoBehaviour
 {
     [SerializeField] private float spawnTime = 5;
 
+    private GameControl gameControl;
 
 
 
@@ -14,6 +15,7 @@ public class FallingObstacle : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, spawnTime);
+        gameControl = FindFirstObjectByType<GameControl>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +23,12 @@ public class FallingObstacle : MonoBehaviour
         if (collision.GetComponent<PlayerControl>() != null)
         {
             Debug.Log("Player hit");
+
+            if (gameControl != null)
+            {
+                gameControl.PlayerHit();
+            }
+
             Destroy(gameObject);
         }
     }
