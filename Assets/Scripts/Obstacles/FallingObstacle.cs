@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallingObstacle : MonoBehaviour
 {
-    [SerializeField] private float spawnTime = 5;
+    [SerializeField] private float spawnTime = 4;
 
     private GameControl gameControl;
 
