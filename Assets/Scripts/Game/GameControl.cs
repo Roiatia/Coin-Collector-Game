@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour
 {
 
-    [SerializeField] private int CoinsToCollect = 6;
+    [SerializeField] private int CoinsToCollect = 10;
     [SerializeField] private int lives = 3;
 
     private int CoinsCollected;
@@ -26,6 +26,7 @@ public class GameControl : MonoBehaviour
         {
             Debug.Log("YOU LOSE!");
             gameEnded = true;
+            Time.timeScale = 0f;
         }
     }
     public void addCoins()
@@ -45,7 +46,8 @@ public class GameControl : MonoBehaviour
             Debug.Log("YOU WIN!");
 
             gameEnded = true;
-           
+
+            Time.timeScale = 0f;
         }
     }
 
@@ -54,7 +56,6 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-
 
     }
 
